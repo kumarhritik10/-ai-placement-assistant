@@ -1,5 +1,5 @@
 """
-app.py  -  AI Placement Writing Assistant
+app.py  -  AutoCorrect Assistant
 Streamlit Cloud compatible. No heavy ML dependencies.
 """
 
@@ -13,7 +13,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 
 st.set_page_config(
-    page_title="AI Placement Assistant",
+    page_title="AutoCorrect Assistant",
     page_icon="P",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -222,7 +222,7 @@ for key, default in [("corrections", 0), ("fillers_caught", 0)]:
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown("## Placement AI")
-    st.caption("AI Placement Writing Assistant")
+    st.caption("AutoCorrect Assistant")
     st.divider()
 
     target_role = st.selectbox(
@@ -241,7 +241,7 @@ with st.sidebar:
 # ── Hero ──────────────────────────────────────────────────────────────────────
 st.markdown("""
 <div class="hero">
-  <p class="hero-title">AI Placement Assistant</p>
+  <p class="hero-title">AutoCorrect Assistant</p>
   <p class="hero-sub">AI-powered writing assistant for college placements — spell correction, ATS scoring, interview polish, and vocabulary upgrade</p>
 </div>
 """, unsafe_allow_html=True)

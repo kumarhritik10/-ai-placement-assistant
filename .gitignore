@@ -1,0 +1,15 @@
+# Ignore the notes folder
+notes/
+
+# Python caches and environments
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+.venv/
+env/
+
+# OS generated files
+.DS_Store
+Thumbs.db

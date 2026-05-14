@@ -1,4 +1,4 @@
-# AI Placement Writing Assistant
+# AutoCorrect Assistant
 
 > An AI-powered NLP tool that helps college students write better resumes, polish interview answers, and upgrade vocabulary for campus placements.
 
