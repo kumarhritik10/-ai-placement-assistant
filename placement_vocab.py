@@ -11,26 +11,36 @@ Modules:
   POWER_VERBS      — strong action verbs for resume bullets
 """
 
-# ── Domain terms that must NEVER be spell-corrected ─────────────────────────
+# ── 1. Tech & Domain Jargon (These won't be spell-corrected) ─────────────────
 PLACEMENT_WORDS = {
-    # Programming & frameworks
-    "tensorflow", "pytorch", "keras", "sklearn", "numpy", "pandas",
-    "matplotlib", "seaborn", "fastapi", "flask", "django", "springboot",
-    "reactjs", "nodejs", "nextjs", "vuejs", "angular", "typescript",
-    # Databases & infra
-    "mongodb", "postgresql", "mysql", "redis", "elasticsearch",
-    "kubernetes", "docker", "aws", "gcp", "azure", "terraform",
-    # Placement jargon
-    "ctc", "lpa", "cgpa", "sgpa", "gpa", "ppo", "ppt",
-    "stipend", "hackathon", "bootcamp", "shortlisted", "onboarding",
-    "btech", "mtech", "mba", "infosys", "wipro", "tcs", "cognizant",
-    "accenture", "deloitte", "capgemini",
-    # Strong resume verbs (ensure they aren't corrected)
+    # Programming & Frameworks
+    "python", "java", "cpp", "cplusplus", "html", "css", "javascript", "typescript",
+    "react", "reactjs", "nodejs", "nextjs", "vuejs", "angular", "php", "sql", "nosql",
+    "tensorflow", "pytorch", "keras", "sklearn", "numpy", "pandas", "matplotlib", "seaborn",
+    "fastapi", "flask", "django", "springboot", "opencv", "scikit-learn", "nltk", "transformers",
+    
+    # Infra & DB
+    "mongodb", "postgresql", "mysql", "redis", "elasticsearch", "kubernetes", "docker",
+    "aws", "gcp", "azure", "terraform", "linux",
+    
+    # Placements & Academic
+    "ctc", "lpa", "cgpa", "sgpa", "gpa", "ppo", "ppt", "btech", "mtech", "mba", "cttc", "bhuvneshwar", "bcrec",
+    "infosys", "wipro", "tcs", "cognizant", "accenture", "deloitte", "capgemini",
+    "certifications", "accomplishments", "coursework", "extracurricular", "coordinator", "karate",
+    
+    # NLP & ML Keywords
+    "nlp", "llm", "bert", "gpt", "aiml", "preprocessing", "pipelines", "exploratory", "datasets",
+    "grouping", "visualization", "recognition", "facial", "accuracy", "precision", "intelligent",
+    "algorithmic", "spelling", "correction", "corrections", "detection", "identifying", "cleaning",
+    "structures", "algorithms", "temporal", "series", "spatially", "artificial", "intelligence",
+    
+    # Strong Verbs (must never be corrected)
     "spearheaded", "orchestrated", "architected", "optimized", "streamlined",
-    "automated", "mentored", "leveraged", "deployed", "refactored",
-    # Acronyms
-    "api", "restful", "graphql", "nlp", "llm", "bert", "gpt",
-    "cicd", "devops", "mlops", "sde", "dsa", "oop", "mvc",
+    "automated", "mentored", "leveraged", "deployed", "refactored", "implemented",
+    "implements", "structured", "filtering", "detecting", "classifying", "typing", "integrating",
+    
+    # General Acronyms
+    "api", "restful", "graphql", "cicd", "devops", "mlops", "sde", "dsa", "oop", "mvc", "git"
 }
 
 # ── Weak word → strong resume alternatives ───────────────────────────────────

@@ -96,7 +96,27 @@ def candidates(word: str) -> set:
 
 def correction(word: str) -> str:
     """Return the most probable spelling correction for a single word."""
-    return max(candidates(word), key=prob)
+    # 1. If it contains a number, don't correct (e.g. "B2B", "O2")
+    if any(c.isdigit() for c in word):
+        return word
+        
+    # 2. If it is entirely uppercase and > 1 character, don't correct (Acronyms like HTML, PHP)
+    if word.isupper() and len(word) > 1:
+        return word
+        
+    # 3. If it has mixed case inside the word, don't correct (e.g. OpenCV, ReactJS)
+    if len(word) > 1 and any(c.isupper() for c in word[1:]):
+        return word
+
+    # 4. Standard Norvig correction on lowercase
+    best = max(candidates(word.lower()), key=prob)
+    
+    # 5. Restore original capitalization
+    if word.istitle():
+        return best.capitalize()
+    elif word.isupper():
+        return best.upper()
+    return best
 
 
 # ---------------------------------------------------------------------------
