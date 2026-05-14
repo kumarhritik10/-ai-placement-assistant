@@ -27,11 +27,19 @@ _DIR        = os.path.dirname(os.path.abspath(__file__))
 CORPUS_PATH = os.path.join(_DIR, "big.txt")
 CORPUS_URL  = "https://norvig.com/big.txt"
 
+DICT_PATH   = os.path.join(_DIR, "words_alpha.txt")
+DICT_URL    = "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt"
+
 
 def _ensure_corpus() -> None:
     """Download the Norvig corpus if it is not already present (~6 MB)."""
     if not os.path.exists(CORPUS_PATH):
         urllib.request.urlretrieve(CORPUS_URL, CORPUS_PATH)
+
+def _ensure_dictionary() -> None:
+    """Download the Standard English dictionary if it is not already present (~4 MB)."""
+    if not os.path.exists(DICT_PATH):
+        urllib.request.urlretrieve(DICT_URL, DICT_PATH)
 
 
 def _tokenize(text: str) -> list:
@@ -39,9 +47,13 @@ def _tokenize(text: str) -> list:
 
 
 _ensure_corpus()
+_ensure_dictionary()
 
 with open(CORPUS_PATH, encoding="utf-8") as _f:
     WORDS: Counter = Counter(_tokenize(_f.read()))
+
+with open(DICT_PATH, encoding="utf-8") as _f:
+    VALID_ENGLISH_WORDS = set(_f.read().splitlines())
 
 # Inject placement vocabulary with very high frequency — never mis-corrected
 try:
@@ -108,7 +120,12 @@ def correction(word: str) -> str:
     if len(word) > 1 and any(c.isupper() for c in word[1:]):
         return word
 
-    # 4. Standard Norvig correction on lowercase
+    # 4. Dictionary Validation: If it's a valid standard English word, do not correct it!
+    # This prevents valid words (like "tutorial", "typing") from being mangled.
+    if word.lower() in VALID_ENGLISH_WORDS:
+        return word
+
+    # 5. Standard Norvig correction on lowercase
     best = max(candidates(word.lower()), key=prob)
     
     # 5. Restore original capitalization
